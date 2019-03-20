@@ -1,0 +1,16 @@
+main.app#RemoteApp {
+  font-family: 'Friction Mono';
+
+  width: 100vw;
+
+  .data-table {
+    padding-bottom: 12rem;
+  }
+
+  .data-summary {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

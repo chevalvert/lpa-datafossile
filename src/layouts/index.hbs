@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base href="{{compiler.publicPath}}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+
+  {{#if compiler.isProduction}}
+  <link rel="stylesheet" href="{{compiler.hash}}.css">
+  {{/if}}
+
+  <script type="text/javascript">
+    window.isProduction = ~window.location.hash.indexOf('#production') || ({{ compiler.isProduction }} && !~window.location.hash.indexOf('#dev'))
+    window.configuration = {{{ json compiler.configuration }}}
+  </script>
+</head>
+<body>
+  <script src="{{compiler.hash}}.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+datafossile-server
+
+Usage:
+  datafossile-server --kiosk
+  datafossile-server --hot
+  datafossile-server --help
+  datafossile-server --version
+
+Options:
+  -h, --help              Show this screen.
+  -v, --version           Print the current version.
+
+  --kiosk                 Auto-launch viewer in kiosk mode when starting server.
+
+  --hot                   Enable configuration hot-reloading.

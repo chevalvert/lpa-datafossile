@@ -1,0 +1,61 @@
+.log-screen {
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: black;
+
+  &[data-state="log"] { color: white }
+  &[data-state="error"] { color: red }
+  &[data-state="warning"] { color: yellow }
+  &[data-state="success"] { color: green }
+
+  &[data-state="loading"] {
+    --progress: 1;
+    color: $white;
+
+    .log-screen__content::before {
+      content: '';
+      width: 100%;
+      height: 2px;
+      background: rgba($white, 0.3);
+      position: absolute;
+      bottom: -1em;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .log-screen__content::after {
+      @include easing(300ms, transform);
+      content: '';
+      width: 100%;
+      height: 2px;
+      background: $white;
+      position: absolute;
+      bottom: -1em;
+      left: 50%;
+      transform: translateX(-50%) scale(var(--progress, 0), 1);
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 1.1;
+  }
+
+  &[data-state="error"] * { text-transform: none }
+}

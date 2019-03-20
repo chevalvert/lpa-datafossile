@@ -1,0 +1,32 @@
+{
+  "host": {
+    "port": 8888,
+    "dist": "build"
+  },
+
+  "debug": {
+    "overrideHostname": false
+  },
+
+  "hardware": {
+    "address": "/dev/ttyUSB0",
+    "pixelsLength": 140,
+    "segmentsLength": 5,
+    "white": [255, 255, 255]
+  },
+
+  "viewer": {
+    "browser": "google chrome",
+    "pixelDensity": 1,
+    "dateFadeInDuration": 5000,
+    "dateFadeOutDuration": 1000,
+    "dateVisibilityDuration": 500,
+    "dateSizeVH": 38,
+    "dataGridEasing": 0.09,
+    "dataGridScale": 1,
+    "particlesMaxLength": 100
+  },
+
+  "datasetRange": [91, 118],
+  "iddleAfter": 1000
+}

@@ -1,0 +1,69 @@
+$input-range-thumb__radius: 1rem;
+
+@mixin input-range-track {
+  cursor: pointer;
+  background: $black;
+  height: 2px;
+  padding: 0 1rem;
+}
+
+@mixin input-range-thumb {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  background: $white;
+  border: 2px solid $black;
+  height: $input-range-thumb__radius * 2;
+  width: $input-range-thumb__radius * 2;
+  transform: translateY(-50%);
+  border-radius: 100%;
+  cursor: pointer;
+  cursor: ew-resize;
+
+  &:active {
+    background: $black;
+  }
+}
+
+.data-timeline {
+  position: relative;
+  padding: 2rem 0;
+  margin: 0 -1rem;
+
+  &__input {
+    appearance: none;
+    background: none;
+    display: block;
+    width: 100%;
+
+    &:focus { outline: none }
+
+    &::-webkit-slider-runnable-track { @include input-range-track; }
+    &::-webkit-slider-thumb {
+      @include input-range-thumb;
+      -webkit-appearance: none;
+    }
+
+    &::-moz-range-track { @include input-range-track; }
+    &::-moz-range-thumb { @include input-range-thumb; }
+
+    &::-ms-track { @include input-range-track; }
+    &::-ms-thumb  { @include input-range-thumb; }
+  }
+
+  &__ticks {
+    top: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - #{$input-range-thumb__radius * 2} - 2rem + 2px);
+    padding: 0 $input-range-thumb__radius + 1rem;
+    transform: translateY(-50%);
+  }
+
+  &__tick {
+    border-left: 2px solid $black;
+    height: 0.5rem;
+    transform: translateX(50%);
+  }
+}

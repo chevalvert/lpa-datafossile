@@ -1,0 +1,37 @@
+.data-table {
+  &, * { @include no-select }
+  color: $white;
+  text-align: center;
+
+  &__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid;
+    background: $black;
+    padding: 1rem;
+  }
+
+  &__header-label {
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+
+  &__header, &__item {
+    display: flex;
+    & > * { width: 25% }
+  }
+
+  &__items {
+    padding-top: 3.6rem;
+  }
+
+  &__item { padding: 1rem }
+
+  &__item:hover {
+    cursor: pointer;
+    background: $white;
+    color: $black;
+  }
+}

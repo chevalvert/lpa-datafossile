@@ -1,0 +1,24 @@
+.data-summary {
+  background: $white;
+  color: $black;
+
+  padding: 1em;
+  // LOL @ kiosk pro lite
+  border-bottom: 27px solid #383838;
+
+  &__date {
+
+  }
+
+  &__stats {
+    display: flex;
+  }
+
+  &__stat::before {
+    content: attr(data-key)'\00a0';
+  }
+
+  &__stat:not(:last-child)::after {
+    content: '\00a0|\00a0';
+  }
+}

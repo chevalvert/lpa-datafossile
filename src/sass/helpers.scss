@@ -1,0 +1,21 @@
+@mixin debug ($color: red) {
+  outline: 1px solid $color;
+}
+
+@mixin easing ($duration: 100ms, $property: all){
+  -webkit-transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+     -moz-transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+      -ms-transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+       -o-transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+          transition: $property $duration cubic-bezier(0.250, 0.100, 0.250, 1.000);
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
