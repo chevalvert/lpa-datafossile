@@ -5,11 +5,13 @@ let waitForIddleness
 
 function reset () {
   isIddle = false
-
   clearTimeout(waitForIddleness)
   waitForIddleness = setTimeout(() => {
     isIddle = true
   }, configuration['iddleAfter'])
 }
 
-module.exports = { isIddle, reset }
+module.exports = {
+  reset,
+  get isIddle () { return isIddle }
+}

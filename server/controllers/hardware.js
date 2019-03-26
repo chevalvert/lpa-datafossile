@@ -4,7 +4,7 @@ const Serialed = require('serialed')
 const ctrlr = new Serialed.SerialedController()
 ctrlr.addNode(
   configuration['hardware'].address,
-  configuration['hardware'].pixelsLength
+  150
 )
 
 const observers = []
@@ -39,10 +39,12 @@ module.exports = {
     const segmentsLength = configuration['hardware'].segmentsLength
     const segmentLength = configuration['hardware'].pixelsLength / segmentsLength
 
+    color = color.map(c => Math.floor(c))
+
     for (let i = 0; i < segmentsLength; i++) {
       const x = i % 2
         ? (segmentLength * (i + 1) - 1) - sliceIndex
-        : sliceIndex + segmentLength * i
+        : sliceIndex + (segmentLength) * i
       ctrlr.led(x, ...color)
     }
   },

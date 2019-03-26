@@ -11,11 +11,12 @@ const WebServer = require('@server/controllers/web-server')
 hardware.raf((dt, frameCount) => {
   if (!iddler.isIddle) return
 
+  hardware.clear()
   const len = configuration['datasetRange'][1] - configuration['datasetRange'][0]
-  for (let i = 0; i < len; i++) {
-    const o = Math.sin(i + frameCount * 0.01)
-    const color = configuration['hardware'].white.map(v => v * o)
-    hardware.segment(i, ...color)
+  for (let i = 0; i <= len; i++) {
+    const o = ((Math.sin(((i * 0.05) - frameCount * 0.005) * 4) + 1) / 2) ** 3
+    const color = configuration['hardware'].white.map(v => Math.max(0, v * o))
+    hardware.segment(i, color)
   }
 })
 
@@ -55,11 +56,12 @@ server
 function sync (data) {
   if (!data) return
 
+  iddler.reset()
+
   if (data.key === 'datasetIndex') {
     const index = data.value
     const sliceIndex = index - configuration['datasetRange'][0]
 
-    iddler.reset()
     hardware.clear()
     hardware.segment(sliceIndex)
   }

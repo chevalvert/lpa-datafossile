@@ -9,10 +9,10 @@
   },
 
   "hardware": {
-    "address": "/dev/ttyUSB0",
+    "address": "/dev/tty.SLAB_USBtoUART",
     "pixelsLength": 140,
     "segmentsLength": 5,
-    "white": [255, 255, 255]
+    "white": [230, 255, 255]
   },
 
   "viewer": {
@@ -28,5 +28,5 @@
   },
 
   "datasetRange": [91, 118],
-  "iddleAfter": 1000
+  "iddleAfter": 30000
 }
