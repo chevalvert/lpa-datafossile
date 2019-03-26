@@ -1,6 +1,6 @@
 {
   "name": "lpa-datafossile",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Bassins de lumière main app",
   "bin": {
     "lpa-datafossile-server": "server/index.js"
